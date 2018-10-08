@@ -14,12 +14,12 @@ function run(testFile) {
   shell.rm("-rf", "elm-stuff");
 
   if (!testFile) {
-    var cmd = [elmTest, "--color"].join(" ");
+    var cmd = [elmTest, "--color", "--verbose"].join(" ");
 
     shell.echo("Running: " + cmd);
     return shell.exec(cmd, spawnOpts).code;
   } else {
-    var cmd = [elmTest, testFile, "--color"].join(" ");
+    var cmd = [elmTest, testFile, "--color", "--verbose"].join(" ");
 
     shell.echo("Running: " + cmd);
     return shell.exec(cmd, spawnOpts).code;
