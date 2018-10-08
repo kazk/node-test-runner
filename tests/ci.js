@@ -18,6 +18,7 @@ function run(testFile) {
 
     shell.echo("Running: " + cmd);
     const res = shell.exec(cmd, spawnOpts);
+    if (res === null) return 1;
     console.log(res.stdout);
     console.error(res.stderr);
     return res.code;
@@ -26,6 +27,7 @@ function run(testFile) {
 
     shell.echo("Running: " + cmd);
     const res = shell.exec(cmd, spawnOpts);
+    if (res === null) return 1;
     console.log(res.stdout);
     console.error(res.stderr);
     return res.code;
