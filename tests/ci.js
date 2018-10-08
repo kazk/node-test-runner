@@ -1,3 +1,4 @@
+console.log(process.env);
 const shell = require("shelljs");
 var _ = require("lodash");
 var fs = require("fs-extra");
