@@ -14,7 +14,7 @@ temp.track();
 
 const elmTestPath = path.join(__dirname, "..", "bin", "elm-test");
 const elmHome = path.join(__dirname, "..", "fixtures", "elm-home");
-const spawnOpts = {silent: false, env: Object.assign({ELM_HOME: elmHome}, process.env), timeout: 30*1000};
+const spawnOpts = {silent: true, env: Object.assign({ELM_HOME: elmHome}, process.env)};
 
 function elmTestWithYes(args, callback) {
   const child = spawn(elmTestPath, args, spawnOpts);
