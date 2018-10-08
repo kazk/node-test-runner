@@ -24,32 +24,11 @@ env:
     - TEST_TARGET=flags.js
     - TEST_TARGET=test_versions.js
 
-before_install:
-- | # see https://github.com/elm-lang/elm-compiler/issues/1473#issuecomment-245704142
-    if [ ! -d sysconfcpus/bin ];
-    then
-      git clone https://github.com/obmarg/libsysconfcpus.git;
-      cd libsysconfcpus;
-      ./configure --prefix=$TRAVIS_BUILD_DIR/sysconfcpus;
-      make && make install;
-      cd ..;
-    fi
-
 install:
   - node --version
   - npm --version
   - npm install
   - npm install why-is-node-running
 
-before_script:
-  - |
-    echo '#!/usr/bin/env node' > node_modules/.bin/elm
-    echo 'const path = require("path");' >> node_modules/.bin/elm
-    echo 'const elm = require("path").join(__dirname, "..", "unpacked_bin", "elm");' >> node_modules/.bin/elm
-    echo "const cpus = \"$TRAVIS_BUILD_DIR/sysconfcpus/bin/sysconfcpus\";" >> node_modules/.bin/elm
-    echo 'require("child_process").spawn(cpus, ["-n", "2", elm].concat(process.argv.slice(2)), {stdio: "inherit"}).on("exit", process.exit);' >> node_modules/.bin/elm
-    cat node_modules/.bin/elm
-
 script:
-# - node tests/ci.js
   - mocha tests/$TEST_TARGET
