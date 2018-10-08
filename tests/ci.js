@@ -17,12 +17,18 @@ function run(testFile) {
     var cmd = [elmTest, "--color", "--verbose"].join(" ");
 
     shell.echo("Running: " + cmd);
-    return shell.exec(cmd, spawnOpts).code;
+    const res = shell.exec(cmd, spawnOpts);
+    console.log(res.stdout);
+    console.error(res.stderr);
+    return res.code;
   } else {
     var cmd = [elmTest, testFile, "--color", "--verbose"].join(" ");
 
     shell.echo("Running: " + cmd);
-    return shell.exec(cmd, spawnOpts).code;
+    const res = shell.exec(cmd, spawnOpts);
+    console.log(res.stdout);
+    console.error(res.stderr);
+    return res.code;
   }
 }
 
