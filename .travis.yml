@@ -20,5 +20,6 @@ install:
   - npm install
 
 script:
-  - sleep 10
+  - which elm
+  - elm
   - node tests/ci.js
