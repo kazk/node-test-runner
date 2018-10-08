@@ -1,4 +1,7 @@
-console.log(process.env);
+const logActiveHandles = require('why-is-node-running');
+setTimeout(function () {
+  logActiveHandles();
+}, 60*1000);
 const shell = require("shelljs");
 var _ = require("lodash");
 var fs = require("fs-extra");
