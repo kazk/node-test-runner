@@ -20,6 +20,5 @@ install:
   - npm install
 
 script:
-  - which elm
-  - elm
+  - ldd ./node_modules/.bin/elm
   - node tests/ci.js
