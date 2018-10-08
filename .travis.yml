@@ -20,4 +20,5 @@ install:
   - npm install
 
 script:
+  - sleep 10
   - node tests/ci.js
