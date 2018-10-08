@@ -20,4 +20,5 @@ install:
   - npm install
 
 script:
-  - npm test
+  - flow check
+  - mocha tests
