@@ -202,7 +202,7 @@ describe("flags", () => {
     }).timeout(5000); // This sometimes needs more time to run on Travis.
   });
 
-  describe("--watch", () => {
+  describe.skip("--watch", () => {
     it("Should re-run tests if a test file is touched", done => {
       const child = spawn(
         elmTestPath,
