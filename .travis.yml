@@ -13,6 +13,11 @@ os:
 env:
   global:
     ELM_VERSION=0.19.0
+  matrix:
+    - TEST_TARGET=ci.js
+    - TEST_TARGET=finder.js
+    - TEST_TARGET=flags.js
+    - TEST_TARGET=test_versions.js
 
 install:
   - node --version
@@ -20,4 +25,4 @@ install:
   - npm install
 
 script:
-  - npm test
+  - mocha tests/$TEST_TARGET
