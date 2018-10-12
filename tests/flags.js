@@ -224,6 +224,7 @@ describe("flags", () => {
       byline(child.stdout).on("data", line => {
         try {
           const json = stripAnsi("" + line);
+          console.log(json);
           // skip expected non-json
           if (json === "Watching for changes...") return;
           const parsedLine = JSON.parse(json);
