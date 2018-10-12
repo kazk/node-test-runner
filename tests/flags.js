@@ -30,7 +30,7 @@ function elmTestWithYes(args, callback) {
 }
 
 function execElmTest(args) {
-  return shell.exec([elmTestPath].concat(args).join(" "), spawnOpts);
+  return spawn.sync(elmTestPath, args, Object.assign({encoding: 'utf-8'}, spawnOpts));
 }
 
 describe("flags", () => {
